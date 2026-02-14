@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TradeSystemConsumerApplication",
+            "request": "launch",
+            "mainClass": "com.kiddieopt.trade_system_consumer.TradeSystemConsumerApplication",
+            "projectName": "trade-system-consumer"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-TradeSystemProducerApplication<trade-system-producer>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
