@@ -10,7 +10,7 @@ public class ConsumerService {
 
     private String message;
 
-    @KafkaListener(topics = "tradeSystem", groupId = "tradeSystem-group")
+    @KafkaListener(topics = "tradeSystem", groupId = "trade-group")
     public void consume(ConsumerModel consumerModel){
         message = consumerModel + "Got data from kafka";
         System.out.println(message);

@@ -15,7 +15,4 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
       properties:
-        spring:
-          json:
-            trusted:
-              packages: com.kiddieopt.trade_system_consumer.model
+        spring.json.trusted.packages: "*"
