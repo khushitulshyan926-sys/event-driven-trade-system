@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TradeSystemProducerApplication<trade-system-producer>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.kiddieopt.trade_system_producer.TradeSystemProducerApplication",
+            "projectName": "trade-system-producer",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
