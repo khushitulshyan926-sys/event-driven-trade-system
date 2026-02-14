@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
-@RequestMapping("/producer")
+@RequestMapping("/kafka")
 public class ProducerController {
 
     @Autowired
