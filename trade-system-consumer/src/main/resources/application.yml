@@ -9,10 +9,12 @@ spring:
     bootstrap-servers: localhost:9092
 
     consumer:
-      group-id: trade-group
+      group-id: trade-group-v2
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
       properties:
         spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.kiddieopt.trade_system_consumer.model.ConsumerModel
+
