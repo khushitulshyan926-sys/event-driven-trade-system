@@ -6,7 +6,7 @@ spring:
     name: trade-system-consumer
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
 
     consumer:
       group-id: trade-group-v2
@@ -17,4 +17,19 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: com.kiddieopt.trade_system_consumer.model.ConsumerModel
+    
+      datasource:
+        url: jdbc:postgresql://postgres:5432/tradedb
+        username: postgres
+        password: tradedb
+        driver-class-name: org.postgresql.Driver
+
+      jpa:
+        hibernate:
+          ddl-auto: update
+        show-sql: true
+        properties:
+          hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+
 
