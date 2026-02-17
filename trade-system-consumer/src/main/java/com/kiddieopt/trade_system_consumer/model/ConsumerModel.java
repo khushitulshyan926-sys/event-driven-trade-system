@@ -1,6 +1,5 @@
 package com.kiddieopt.trade_system_consumer.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ConsumerModel {

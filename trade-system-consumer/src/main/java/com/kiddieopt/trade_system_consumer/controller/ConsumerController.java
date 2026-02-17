@@ -1,7 +1,8 @@
 package com.kiddieopt.trade_system_consumer.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +19,11 @@ public class ConsumerController {
     @Autowired
     private ConsumerService consumerService;
 
-    @GetMapping("/get-trade")
-    public ResponseEntity<String> getTrade(){
-        String response = consumerService.getMessage();
-        return new ResponseEntity<String>(response, HttpStatus.OK);
-    }
-    
+    @GetMapping("/count")
+    public ResponseEntity<Map<String, Long>> getTradeCount(){
+        long response = consumerService.getTradeCount();
+        return ResponseEntity.ok(Map.of("tradeCount", response));
+}
 
 }
+

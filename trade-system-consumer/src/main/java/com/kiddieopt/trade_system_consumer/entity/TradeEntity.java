@@ -1,10 +1,19 @@
-package com.kiddieopt.trade_system_producer.model;
+package com.kiddieopt.trade_system_consumer.entity;
 
 import java.time.LocalDateTime;
-public class ProducerModel {
 
-    private String eventId;
-    private String tradeId;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tradedb")
+public class TradeEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; //primary key for db
+
+    private String eventId; //uuid for unique event
+    private String tradeId; //tradeID for bussiness logic
     private String side; //Buy/Sell
     private String source;
     private Integer quantity;
@@ -13,8 +22,6 @@ public class ProducerModel {
 
     private LocalDateTime tradeTimestamp;
     private LocalDateTime eventCreatedAt;
-
-    public ProducerModel() {}
 
     public String getEventId() {
         return eventId;
@@ -81,6 +88,5 @@ public class ProducerModel {
     }
 
     
-
-    
 }
+
