@@ -2,7 +2,7 @@ services:
   postgres:
     image: 'postgres:latest'
     environment:
-      - 'POSTGRES_DB=tradedb'
+      - 'POSTGRES_DB=raw_trades'
       - 'POSTGRES_PASSWORD=password'
       - 'POSTGRES_USER=postgres'
     ports:

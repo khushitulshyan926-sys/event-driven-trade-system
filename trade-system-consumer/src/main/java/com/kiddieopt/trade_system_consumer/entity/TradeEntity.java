@@ -5,13 +5,14 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tradedb")
+@Table(name = "raw_trades", schema = "raw_schema")
 public class TradeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //primary key for db
 
+    @Column(nullable = false, unique = true)
     private String eventId; //uuid for unique event
     private String tradeId; //tradeID for bussiness logic
     private String side; //Buy/Sell
@@ -22,6 +23,35 @@ public class TradeEntity {
 
     private LocalDateTime tradeTimestamp;
     private LocalDateTime eventCreatedAt;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getProcessedFlag() {
+        return processedFlag;
+    }
+
+    public void setProcessedFlag(Boolean processedFlag) {
+        this.processedFlag = processedFlag;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Column(nullable = false)
+    private Boolean processedFlag = false;
+
+    private String status = "NEW";
 
     public String getEventId() {
         return eventId;

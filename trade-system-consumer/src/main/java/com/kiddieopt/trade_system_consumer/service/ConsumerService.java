@@ -27,7 +27,7 @@ public class ConsumerService {
         entity.setPrice(consumerModel.getPrice());
         entity.setTradeTimestamp(consumerModel.getTradeTimestamp());
         entity.setEventCreatedAt(consumerModel.getEventCreatedAt());
-
+        entity.setProcessedFlag(false);
         tradeRepository.save(entity);
 
         System.out.println("Trade stored in DB");
