@@ -22,6 +22,10 @@ public class TradeEntity {
 
     private LocalDateTime tradeTimestamp;
 
+    
+    private Long kafkaOffset;
+    private Boolean processedFlag = false; 
+
     public Long getId() {
         return id;
     }
@@ -29,27 +33,7 @@ public class TradeEntity {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Boolean getProcessedFlag() {
-        return processedFlag;
-    }
-
-    public void setProcessedFlag(Boolean processedFlag) {
-        this.processedFlag = processedFlag;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    @Column(nullable = false)
-    private Boolean processedFlag = false;
-
-    private String status = "NEW";
+    
 
     public String getEventId() {
         return eventId;
@@ -106,6 +90,20 @@ public class TradeEntity {
     public void setTradeTimestamp(LocalDateTime tradeTimestamp) {
         this.tradeTimestamp = tradeTimestamp;
     }
+    public Long getKafkaOffset() {
+        return kafkaOffset;
+    }
+
+    public void setKafkaOffset(Long kafkaOffset) {
+        this.kafkaOffset = kafkaOffset;
+    }
     
+    public Boolean getProcessedFlag() {
+        return processedFlag;
+    }
+
+    public void setProcessedFlag(Boolean processedFlag) {
+        this.processedFlag = processedFlag;
+    }
 }
 
