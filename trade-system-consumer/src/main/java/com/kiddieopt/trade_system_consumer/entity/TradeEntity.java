@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "raw_trades", schema = "raw_schema")
+@Table(name = "raw_trades_v1", schema = "raw_schema_v1")
 public class TradeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,17 +13,29 @@ public class TradeEntity {
 
     @Column(nullable = false, unique = true)
     private String eventId; //uuid for unique event
+
+    @Column(name = "trade_id")
     private String tradeId; //tradeID for bussiness logic
+
+    @Column(name = "side")
     private String side; //Buy/Sell
+
+    @Column(name = "source")
     private String source;
+
+    @Column(name = "quantity")
     private Integer quantity;
 
+    @Column(name = "price")
     private Double price;
 
+    @Column(name = "created_at")
     private LocalDateTime tradeTimestamp;
 
-    
+    @Column(name = "kafka_offset")
     private Long kafkaOffset;
+
+    @Column(name = "processed_flag")
     private Boolean processedFlag = false; 
 
     public Long getId() {

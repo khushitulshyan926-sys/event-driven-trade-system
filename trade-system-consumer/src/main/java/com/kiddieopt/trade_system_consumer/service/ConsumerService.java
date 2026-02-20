@@ -16,7 +16,7 @@ public class ConsumerService {
         this.tradeRepository = tradeRepository;
     }
 
-    @KafkaListener(topics = "tradeSystem-v2", groupId = "trade-group-v2")
+    @KafkaListener(topics = "tradeSystem-v3", groupId = "trade-group-v3")
     public void consume(ConsumerModel consumerModel){
         TradeEntity entity = new TradeEntity();
         entity.setEventId(consumerModel.getEventId());

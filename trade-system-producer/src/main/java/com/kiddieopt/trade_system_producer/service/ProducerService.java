@@ -13,7 +13,7 @@ public class ProducerService {
     private KafkaTemplate<String, ProducerModel> kafkaTemplate;
 
     public String sendMessage(ProducerModel producerModel){
-        kafkaTemplate.send("tradeSystem-v2", "producerModel", producerModel);
+        kafkaTemplate.send("tradeSystem-v3", "producerModel", producerModel);
         return "message sent to kafka server";
     }
 
