@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "raw_trades", schema = "raw_schema")
 public class TradeEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //primary key for db
@@ -22,7 +21,6 @@ public class TradeEntity {
     private Double price;
 
     private LocalDateTime tradeTimestamp;
-    private LocalDateTime eventCreatedAt;
 
     public Long getId() {
         return id;
@@ -108,15 +106,6 @@ public class TradeEntity {
     public void setTradeTimestamp(LocalDateTime tradeTimestamp) {
         this.tradeTimestamp = tradeTimestamp;
     }
-
-    public LocalDateTime getEventCreatedAt() {
-        return eventCreatedAt;
-    }
-
-    public void setEventCreatedAt(LocalDateTime eventCreatedAt) {
-        this.eventCreatedAt = eventCreatedAt;
-    }
-
     
 }
 

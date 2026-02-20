@@ -26,7 +26,6 @@ public class ConsumerService {
         entity.setQuantity(consumerModel.getQuantity());
         entity.setPrice(consumerModel.getPrice());
         entity.setTradeTimestamp(consumerModel.getTradeTimestamp());
-        entity.setEventCreatedAt(consumerModel.getEventCreatedAt());
         entity.setProcessedFlag(false);
         tradeRepository.save(entity);
 

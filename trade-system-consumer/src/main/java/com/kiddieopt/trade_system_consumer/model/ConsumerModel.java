@@ -13,7 +13,6 @@ public class ConsumerModel {
     private Double price;
 
     private LocalDateTime tradeTimestamp;
-    private LocalDateTime eventCreatedAt;
 
     public ConsumerModel() {}
 
@@ -73,16 +72,8 @@ public class ConsumerModel {
         this.tradeTimestamp = tradeTimestamp;
     }
 
-    public LocalDateTime getEventCreatedAt() {
-        return eventCreatedAt;
-    }
-
-    public void setEventCreatedAt(LocalDateTime eventCreatedAt) {
-        this.eventCreatedAt = eventCreatedAt;
-    }
-
     @Override
     public String toString(){
-        return "Trade [eventId=" + eventId + ", tradeId=" +tradeId+ ", side=" +side+ ", source=" +source+ ", quntity=" +quantity+", price="+price+", tradetime=" +tradeTimestamp+", event created at="+eventCreatedAt+"]";
+        return "Trade [eventId=" + eventId + ", tradeId=" +tradeId+ ", side=" +side+ ", source=" +source+ ", quntity=" +quantity+", price="+price+", tradetime=" +tradeTimestamp+"]";
     }
 }

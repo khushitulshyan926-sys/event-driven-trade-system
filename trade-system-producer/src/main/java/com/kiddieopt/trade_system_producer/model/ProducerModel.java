@@ -12,7 +12,6 @@ public class ProducerModel {
     private Double price;
 
     private LocalDateTime tradeTimestamp;
-    private LocalDateTime eventCreatedAt;
 
     public ProducerModel() {}
 
@@ -70,17 +69,7 @@ public class ProducerModel {
 
     public void setTradeTimestamp(LocalDateTime tradeTimestamp) {
         this.tradeTimestamp = tradeTimestamp;
-    }
-
-    public LocalDateTime getEventCreatedAt() {
-        return eventCreatedAt;
-    }
-
-    public void setEventCreatedAt(LocalDateTime eventCreatedAt) {
-        this.eventCreatedAt = eventCreatedAt;
-    }
-
-    
+    }   
 
     
 }
