@@ -1,7 +1,7 @@
 package com.kiddieopt.trade_system_producer.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,17 +12,35 @@ import com.kiddieopt.trade_system_producer.service.ProducerService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @RestController
 @RequestMapping("/kafka")
 public class ProducerController {
 
-    @Autowired
-    ProducerService producerService;
+    private static final Logger log =
+            LoggerFactory.getLogger(ProducerController.class);
 
-    @PostMapping("/add-trade")    
-    public ResponseEntity<String> addTrade(@RequestBody ProducerModel producerModel){
-        String response = producerService.sendMessage(producerModel);
-        return new ResponseEntity<String>(response, HttpStatus.OK);
+    private final ProducerService producerService;
+
+    public ProducerController(ProducerService producerService) {
+        this.producerService = producerService;
+    }
+
+    @PostMapping("/add-trade")
+    public ResponseEntity<String> addTrade(@RequestBody ProducerModel producerModel) {
+
+        try {
+            String response = producerService.sendMessage(producerModel);
+
+            log.info("Trade message sent. tradeId={}", producerModel.getTradeId());
+
+            return ResponseEntity.ok(response);
+
+        } catch (Exception ex) {
+            log.error("Failed to send trade message. tradeId={}",
+                    producerModel.getTradeId(), ex);
+
+            return ResponseEntity.internalServerError()
+                    .body("Failed to send trade message");
+        }
     }
 }
